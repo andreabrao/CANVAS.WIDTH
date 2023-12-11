@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CANVAS.WIDTH - Crie Memes Incríveis!</title>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-image: url('logo.png'); /* Substitua com a sua imagem de fundo */
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background-color: #45a049;
+    }
+
+    .cta-button::after {
+      content: '\2192'; /* Right arrow */
+      margin-left: 10px;
+    }
+
+    .feature {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+
+    .feature img {
+      width: 80px;
+      margin-right: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-text {
+      flex-grow: 1;
+    }
+
+    .feature h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+      font-size: 0.9em;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #555;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #45a049;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="fade-in">Crie Memes Incríveis e com Facilidade</h1>
+    <p class="fade-in">Transforme suas ideias em humor irresistível.</p>
+    <a href="#features" class="cta-button fade-in">Conheça Mais</a>
+  </header>
+
+  <div class="container">
+    <p class="fade-in">Bem-vindo ao CANVAS.WIDTH, onde a criatividade encontra a diversão. Crie memes personalizados com nosso incrível gerador de memes facil de usar.</p>
+    
+    <div class="feature fade-in">
+    
+      <div class="feature-text">
+        <h2>Personalização Total</h2>
+        <p>Escolha entre algumas fontes, cores e estilos para criar memes únicos e expressivos.</p>
+      </div>
+    </div>
+
+    <div class="feature fade-in">
+      
+      <div class="feature-text">
+        <h2>Intuitivo e Rápido</h2>
+        <p>Nossa interface fácil de usar permite que você crie memes em minutos ou em segundos, sem necessidade de habilidades técnicas.</p>
+      </div>
+    </div>
+
+    <div class="feature fade-in">
+      
+      <div class="feature-text">
+        <h2>Upload facil e rapido</h2>
+        <p>Baixe-os para uso posterior. Divirta-se compartilhando humor, e aligria!</p>
+      </div>
+    </div>
+
+    <a href="index.html" class="cta-button fade-in">Experimente Agora</a>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Página Inicial</a>
+        <a href="#">Sobre Nós</a>
+        <a href="#">Contato</a>
+      </div>
+      <div>
+        &copy; 2023 Seu Produto - Crie Memes Incríveis! | <a href="#">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function redirectToMemeGenerator() {
+      window.location.href = 'index.html'; // Substitua pelo caminho real do seu gerador de memes
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const ctaButtons = document.querySelectorAll('.cta-button');
+
+      ctaButtons.forEach(function (button) {
+        button.addEventListener('click', redirectToMemeGenerator);
+      });
+    });
+  </script>
+</body>
+</html>

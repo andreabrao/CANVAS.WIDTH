@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Memes</title>
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9424759862319539"
+     crossorigin="anonymous"></script>
+<!-- CANVAS.WIDTH -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9424759862319539"
+     data-ad-slot="6663902693"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "6663902693",
+      enable_page_level_ads: true
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #memeCanvas {
+      max-width: 100%;
+      border: 1px solid #000;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .controls {
+      max-width: 600px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      color: #4caf50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  
+    <!-- Anúncio superior -->
+  <div style="text-align: center; margin: 20px 0;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="6663902693"
+         data-ad-slot="6663902693"
+         data-ad-format="auto"></ins>
+  </div>
+
+  <!-- Seu conteúdo existente -->
+
+  <!-- Anúncio inferior -->
+  <div style="text-align: center; margin: 20px 0;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="6663902693"
+         data-ad-slot="6663902693"
+         data-ad-format="auto"></ins>
+  </div>
+  
+  <canvas id="memeCanvas"></canvas>
+
+  <div class="controls">
+    <div class="control-group">
+      <label for="imageInput">Selecione uma imagem:</label>
+      <input type="file" id="imageInput" accept="image/*">
+    </div>
+
+    <div class="control-group">
+      <label for="topText">Texto Superior:</label>
+      <input type="text" id="topText" placeholder="Texto Superior">
+    </div>
+
+    <div class="control-group">
+      <label for="bottomText">Texto Inferior:</label>
+      <input type="text" id="bottomText" placeholder="Texto Inferior">
+    </div>
+
+    <div class="control-group">
+      <label for="textColor">Cor do Texto:</label>
+      <input type="color" id="textColor" value="#ffffff">
+    </div>
+
+    <div class="control-group">
+      <label for="outlineColor">Cor do Contorno:</label>
+      <input type="color" id="outlineColor" value="#000000">
+    </div>
+
+    <div class="control-group">
+      <label for="fontSize">Tamanho da Fonte:</label>
+      <input type="number" id="fontSize" min="10" max="100" value="30">
+    </div>
+
+    <div class="control-group">
+      <label for="fontFamily">Fonte:</label>
+      <select id="fontFamily">
+        <option value="Impact">Impacto</option>
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Comic Sans MS">Comic Sans MS</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+        <!-- Adicione mais opções de fonte conforme necessário -->
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="increaseTextSize">Aumentar Tamanho do Texto:</label>
+      <input type="checkbox" id="increaseTextSize">
+    </div>
+
+    <div class="control-group">
+      <label for="outlineStyle">Estilo do Contorno:</label>
+      <select id="outlineStyle">
+        <option value="solid">Sólido</option>
+        <option value="dashed">Tracejado</option>
+        <option value="dotted">Pontilhado</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="textAlign">Alinhamento do Texto:</label>
+      <select id="textAlign">
+        <option value="center">Centro</option>
+        <option value="left">Esquerda</option>
+        <option value="right">Direita</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="textShadow">Sombra do Texto:</label>
+      <input type="checkbox" id="textShadow">
+    </div>
+
+    <div class="control-group">
+      <label for="opacity">Opacidade do Texto:</label>
+      <input type="range" id="opacity" min="0" max="1" step="0.1" value="1">
+    </div>
+
+    <div class="control-group">
+      <label for="backgroundColor">Cor de Fundo:</label>
+      <input type="color" id="backgroundColor" value="#000000">
+    </div>
+
+    <div class="button-group">
+      <button onclick="generateMeme()">Gerar Meme</button>
+      <button onclick="clearText()">Limpar Texto</button>
+    </div>
+
+    <a id="downloadLink" style="display: none;">Baixar Meme</a>
+  </div>
+
+  <script>
+    let increaseTextSize = false;
+
+    document.getElementById('increaseTextSize').addEventListener('change', function() {
+      increaseTextSize = this.checked;
+    });
+
+    function generateMeme() {
+      const inputImage = document.getElementById('imageInput').files[0];
+      const topText = document.getElementById('topText').value;
+      const bottomText = document.getElementById('bottomText').value;
+      const textColor = document.getElementById('textColor').value;
+      const outlineColor = document.getElementById('outlineColor').value;
+      let fontSize = document.getElementById('fontSize').value;
+      const fontFamily = document.getElementById('fontFamily').value;
+      const outlineStyle = document.getElementById('outlineStyle').value;
+      const textAlign = document.getElementById('textAlign').value;
+      const textShadow = document.getElementById('textShadow').checked;
+      const opacity = document.getElementById('opacity').value;
+      const backgroundColor = document.getElementById('backgroundColor').value;
+
+      if (increaseTextSize) {
+        fontSize *= 1.5; // Aumenta o tamanho em 50%
+      }
+
+      if (inputImage) {
+        const canvas = document.getElementById('memeCanvas');
+        const context = canvas.getContext('2d');
+
+        const img = new Image();
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          // Adiciona fundo
+          context.fillStyle = backgroundColor;
+          context.fillRect(0, 0, canvas.width, canvas.height);
+
+          // Adiciona imagem
+          context.drawImage(img, 0, 0);
+
+          // Adiciona texto superior
+          addText(context, topText, textColor, outlineColor, fontSize, fontFamily, canvas.width / 2, 40, textAlign, outlineStyle, textShadow, opacity);
+
+          // Adiciona texto inferior
+          addText(context, bottomText, textColor, outlineColor, fontSize, fontFamily, canvas.width / 2, canvas.height - 20, textAlign, outlineStyle, textShadow, opacity);
+
+          // Mostra o link de download
+          document.getElementById('downloadLink').style.display = 'block';
+        };
+
+        img.src = URL.createObjectURL(inputImage);
+      } else {
+        console.error('Por favor, selecione uma imagem.');
+      }
+    }
+
+    function addText(context, text, textColor, outlineColor, fontSize, fontFamily, x, y, textAlign, outlineStyle, textShadow, opacity) {
+      // Adiciona contorno
+      context.font = `${fontSize}px ${fontFamily}`;
+      context.strokeStyle = outlineColor;
+      context.lineWidth = 5;
+      context.lineJoin = 'round';
+      context.textAlign = textAlign;
+      context.textBaseline = 'middle';
+
+      if (textShadow) {
+        context.shadowColor = outlineColor;
+        context.shadowBlur = 5;
+        context.shadowOffsetX = 2;
+        context.shadowOffsetY = 2;
+      }
+
+      context.globalAlpha = opacity;
+
+      context.setLineDash(getOutlineStyle(outlineStyle));
+      context.strokeText(text, x, y);
+
+      // Adiciona texto
+      context.fillStyle = textColor;
+      context.fillText(text, x, y);
+
+      context.globalAlpha = 1; // Restaura a opacidade padrão
+      context.shadowColor = 'transparent'; // Limpa a sombra
+    }
+
+    function getOutlineStyle(style) {
+      switch (style) {
+        case 'dashed':
+          return [10, 5]; // 10 pixels drawn, 5 pixels space
+        case 'dotted':
+          return [5, 5]; // 5 pixels drawn, 5 pixels space
+        default:
+          return [];
+      }
+    }
+
+    function clearText() {
+      const canvas = document.getElementById('memeCanvas');
+      const context = canvas.getContext('2d');
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Oculta o link de download ao limpar o texto
+      document.getElementById('downloadLink').style.display = 'none';
+    }
+
+    function downloadMeme() {
+      const canvas = document.getElementById('memeCanvas');
+      const downloadLink = document.getElementById('downloadLink');
+      downloadLink.href = canvas.toDataURL();
+      downloadLink.download = 'meme.png';
+    }
+
+    document.getElementById('imageInput').addEventListener('change', generateMeme);
+    document.getElementById('downloadLink').addEventListener('click', downloadMeme);
+  </script>
+</body>
+</html>
