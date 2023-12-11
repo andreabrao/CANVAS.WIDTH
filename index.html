@@ -3,332 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerador de Memes</title>
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9424759862319539"
-     crossorigin="anonymous"></script>
-<!-- CANVAS.WIDTH -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9424759862319539"
-     data-ad-slot="6663902693"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "6663902693",
-      enable_page_level_ads: true
-    });
-  </script>
+  <title>CANVAS.WIDTH - Crie Memes Incríveis!</title>
+    <a href="index2.html"></a>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f8f8f8;
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 0;
+      color: #333;
     }
 
-    #memeCanvas {
-      max-width: 100%;
-      border: 1px solid #000;
-      display: block;
-      margin: 20px auto;
-    }
-
-    .controls {
-      max-width: 600px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    header {
+  
+      background-size: cover;
+      background-position: center;
+      color: #fff;
       text-align: center;
+      padding: 100px 0;
     }
 
-    .control-group {
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 3em;
       margin-bottom: 20px;
+      color: #333;
     }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      color: #555;
     }
 
-    input,
-    select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    .button-group {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin-right: 10px;
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
       background-color: #4caf50;
       color: #fff;
-      border: none;
-      border-radius: 5px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       cursor: pointer;
     }
 
-    button:hover {
+    .cta-button:hover {
       background-color: #45a049;
     }
 
-    a {
-      color: #4caf50;
-      text-decoration: none;
-      font-weight: bold;
+    .cta-button::after {
+      content: '\2192'; /* Right arrow */
+      margin-left: 10px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .feature {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
     }
+
+    .feature img {
+      width: 80px;
+      margin-right: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-text {
+      flex-grow: 1;
+    }
+
+    .feature h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+      font-size: 0.9em;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #555;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #45a049;
+    }
+
   </style>
 </head>
 <body>
-  
-    <!-- Anúncio superior -->
-  <div style="text-align: center; margin: 20px 0;">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="6663902693"
-         data-ad-slot="6663902693"
-         data-ad-format="auto"></ins>
+  <header>
+    <h1 class="fade-in">Crie Memes Incríveis e com Facilidade</h1>
+    <p class="fade-in">Transforme suas ideias em humor irresistível.</p>
+    <a href="index2.html" class="cta-button fade-in">Conheça Mais</a>
+  </header>
+
+  <div class="container">
+    <p class="fade-in">Bem-vindo ao CANVAS.WIDTH, onde a criatividade encontra a diversão. Crie memes personalizados com nosso incrível gerador de memes facil de usar.</p>
+    
+    <div class="feature fade-in">
+    
+      <div class="feature-text">
+        <h2>Personalização Total</h2>
+        <p>Escolha entre algumas fontes, cores e estilos para criar memes únicos e expressivos.</p>
+      </div>
+    </div>
+
+    <div class="feature fade-in">
+      
+      <div class="feature-text">
+        <h2>Intuitivo e Rápido</h2>
+        <p>Nossa interface fácil de usar permite que você crie memes em minutos ou em segundos, sem necessidade de habilidades técnicas.</p>
+      </div>
+    </div>
+
+    <div class="feature fade-in">
+      
+      <div class="feature-text">
+        <h2>Upload facil e rapido</h2>
+        <p>Baixe-os para uso posterior. Divirta-se compartilhando humor, e aligria!</p>
+      </div>
+    </div>
+
+    <a href="index.html" class="cta-button fade-in">Experimente Agora</a>
   </div>
 
-  <!-- Seu conteúdo existente -->
-
-  <!-- Anúncio inferior -->
-  <div style="text-align: center; margin: 20px 0;">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="6663902693"
-         data-ad-slot="6663902693"
-         data-ad-format="auto"></ins>
-  </div>
-  
-  <canvas id="memeCanvas"></canvas>
-
-  <div class="controls">
-    <div class="control-group">
-      <label for="imageInput">Selecione uma imagem:</label>
-      <input type="file" id="imageInput" accept="image/*">
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Página Inicial</a>
+        <a href="#">Sobre Nós</a>
+        <a href="#">Contato</a>
+      </div>
+      <div>
+        &copy; 2023 Seu Produto - Crie Memes Incríveis! | <a href="#">Política de Privacidade</a>
+      </div>
     </div>
-
-    <div class="control-group">
-      <label for="topText">Texto Superior:</label>
-      <input type="text" id="topText" placeholder="Texto Superior">
-    </div>
-
-    <div class="control-group">
-      <label for="bottomText">Texto Inferior:</label>
-      <input type="text" id="bottomText" placeholder="Texto Inferior">
-    </div>
-
-    <div class="control-group">
-      <label for="textColor">Cor do Texto:</label>
-      <input type="color" id="textColor" value="#ffffff">
-    </div>
-
-    <div class="control-group">
-      <label for="outlineColor">Cor do Contorno:</label>
-      <input type="color" id="outlineColor" value="#000000">
-    </div>
-
-    <div class="control-group">
-      <label for="fontSize">Tamanho da Fonte:</label>
-      <input type="number" id="fontSize" min="10" max="100" value="30">
-    </div>
-
-    <div class="control-group">
-      <label for="fontFamily">Fonte:</label>
-      <select id="fontFamily">
-        <option value="Impact">Impacto</option>
-        <option value="Arial">Arial</option>
-        <option value="Verdana">Verdana</option>
-        <option value="Comic Sans MS">Comic Sans MS</option>
-        <option value="Times New Roman">Times New Roman</option>
-        <option value="Courier New">Courier New</option>
-        <!-- Adicione mais opções de fonte conforme necessário -->
-      </select>
-    </div>
-
-    <div class="control-group">
-      <label for="increaseTextSize">Aumentar Tamanho do Texto:</label>
-      <input type="checkbox" id="increaseTextSize">
-    </div>
-
-    <div class="control-group">
-      <label for="outlineStyle">Estilo do Contorno:</label>
-      <select id="outlineStyle">
-        <option value="solid">Sólido</option>
-        <option value="dashed">Tracejado</option>
-        <option value="dotted">Pontilhado</option>
-      </select>
-    </div>
-
-    <div class="control-group">
-      <label for="textAlign">Alinhamento do Texto:</label>
-      <select id="textAlign">
-        <option value="center">Centro</option>
-        <option value="left">Esquerda</option>
-        <option value="right">Direita</option>
-      </select>
-    </div>
-
-    <div class="control-group">
-      <label for="textShadow">Sombra do Texto:</label>
-      <input type="checkbox" id="textShadow">
-    </div>
-
-    <div class="control-group">
-      <label for="opacity">Opacidade do Texto:</label>
-      <input type="range" id="opacity" min="0" max="1" step="0.1" value="1">
-    </div>
-
-    <div class="control-group">
-      <label for="backgroundColor">Cor de Fundo:</label>
-      <input type="color" id="backgroundColor" value="#000000">
-    </div>
-
-    <div class="button-group">
-      <button onclick="generateMeme()">Gerar Meme</button>
-      <button onclick="clearText()">Limpar Texto</button>
-    </div>
-
-    <a id="downloadLink" style="display: none;">Baixar Meme</a>
-  </div>
+  </footer>
 
   <script>
-    let increaseTextSize = false;
+    function redirectToMemeGenerator() {
+      window.location.href = 'index2.html'; // Substitua pelo caminho real do seu gerador de memes
+    }
 
-    document.getElementById('increaseTextSize').addEventListener('change', function() {
-      increaseTextSize = this.checked;
+    document.addEventListener('DOMContentLoaded', function () {
+      const ctaButtons = document.querySelectorAll('.cta-button');
+
+      ctaButtons.forEach(function (button) {
+        button.addEventListener('click', redirectToMemeGenerator);
+      });
     });
-
-    function generateMeme() {
-      const inputImage = document.getElementById('imageInput').files[0];
-      const topText = document.getElementById('topText').value;
-      const bottomText = document.getElementById('bottomText').value;
-      const textColor = document.getElementById('textColor').value;
-      const outlineColor = document.getElementById('outlineColor').value;
-      let fontSize = document.getElementById('fontSize').value;
-      const fontFamily = document.getElementById('fontFamily').value;
-      const outlineStyle = document.getElementById('outlineStyle').value;
-      const textAlign = document.getElementById('textAlign').value;
-      const textShadow = document.getElementById('textShadow').checked;
-      const opacity = document.getElementById('opacity').value;
-      const backgroundColor = document.getElementById('backgroundColor').value;
-
-      if (increaseTextSize) {
-        fontSize *= 1.5; // Aumenta o tamanho em 50%
-      }
-
-      if (inputImage) {
-        const canvas = document.getElementById('memeCanvas');
-        const context = canvas.getContext('2d');
-
-        const img = new Image();
-        img.onload = function () {
-          canvas.width = img.width;
-          canvas.height = img.height;
-
-          // Adiciona fundo
-          context.fillStyle = backgroundColor;
-          context.fillRect(0, 0, canvas.width, canvas.height);
-
-          // Adiciona imagem
-          context.drawImage(img, 0, 0);
-
-          // Adiciona texto superior
-          addText(context, topText, textColor, outlineColor, fontSize, fontFamily, canvas.width / 2, 40, textAlign, outlineStyle, textShadow, opacity);
-
-          // Adiciona texto inferior
-          addText(context, bottomText, textColor, outlineColor, fontSize, fontFamily, canvas.width / 2, canvas.height - 20, textAlign, outlineStyle, textShadow, opacity);
-
-          // Mostra o link de download
-          document.getElementById('downloadLink').style.display = 'block';
-        };
-
-        img.src = URL.createObjectURL(inputImage);
-      } else {
-        console.error('Por favor, selecione uma imagem.');
-      }
-    }
-
-    function addText(context, text, textColor, outlineColor, fontSize, fontFamily, x, y, textAlign, outlineStyle, textShadow, opacity) {
-      // Adiciona contorno
-      context.font = `${fontSize}px ${fontFamily}`;
-      context.strokeStyle = outlineColor;
-      context.lineWidth = 5;
-      context.lineJoin = 'round';
-      context.textAlign = textAlign;
-      context.textBaseline = 'middle';
-
-      if (textShadow) {
-        context.shadowColor = outlineColor;
-        context.shadowBlur = 5;
-        context.shadowOffsetX = 2;
-        context.shadowOffsetY = 2;
-      }
-
-      context.globalAlpha = opacity;
-
-      context.setLineDash(getOutlineStyle(outlineStyle));
-      context.strokeText(text, x, y);
-
-      // Adiciona texto
-      context.fillStyle = textColor;
-      context.fillText(text, x, y);
-
-      context.globalAlpha = 1; // Restaura a opacidade padrão
-      context.shadowColor = 'transparent'; // Limpa a sombra
-    }
-
-    function getOutlineStyle(style) {
-      switch (style) {
-        case 'dashed':
-          return [10, 5]; // 10 pixels drawn, 5 pixels space
-        case 'dotted':
-          return [5, 5]; // 5 pixels drawn, 5 pixels space
-        default:
-          return [];
-      }
-    }
-
-    function clearText() {
-      const canvas = document.getElementById('memeCanvas');
-      const context = canvas.getContext('2d');
-      context.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Oculta o link de download ao limpar o texto
-      document.getElementById('downloadLink').style.display = 'none';
-    }
-
-    function downloadMeme() {
-      const canvas = document.getElementById('memeCanvas');
-      const downloadLink = document.getElementById('downloadLink');
-      downloadLink.href = canvas.toDataURL();
-      downloadLink.download = 'meme.png';
-    }
-
-    document.getElementById('imageInput').addEventListener('change', generateMeme);
-    document.getElementById('downloadLink').addEventListener('click', downloadMeme);
   </script>
 </body>
+</html>
 </html>
