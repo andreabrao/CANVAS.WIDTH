@@ -6,7 +6,27 @@
   <title>Gerador de Memes</title>
   <style>
   
- 
+    @media only screen and (max-width: 600px) {
+    .controls {
+      max-width: 100%;
+      padding: 10px;
+    }
+  
+    .control-group {
+      margin-bottom: 10px;
+    }
+  
+    input,
+    select {
+      width: calc(100% - 20px);
+      margin-bottom: 5px;
+    }
+  
+    button {
+      padding: 8px 16px;
+    }
+  }
+    
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
@@ -14,24 +34,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
+
     #memeCanvas {
-      max-width: 100%;
+      max-width: 50%;
       border: 1px solid #000;
       display: block;
       margin: 20px auto;
     }
-
+    
     .controls {
-      max-width: 600px;
+      width: 160px;
+      max-width: 300px;
       background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 2vw; /* Use uma unidade relativa */
+      border-radius: 3px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
+ 
 
     .control-group {
       margin-bottom: 20px;
@@ -295,4 +318,4 @@
     document.getElementById('downloadLink').addEventListener('click', downloadMeme);
   </script>
 </body>
-        </html>
+  </html>
