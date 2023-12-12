@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CANVAS.WIDTH - Crie Memes Incríveis!</title>
-    <a href="index2.html"></a>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
   <style>
     body {
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #f8f8f8;
       margin: 0;
       padding: 0;
@@ -15,12 +15,12 @@
     }
 
     header {
-  
       background-size: cover;
       background-position: center;
       color: #fff;
       text-align: center;
-      padding: 100px 0;
+      padding: 80px 20px;
+      background-color: #ff6f61; /* Coral Red */
     }
 
     .container {
@@ -33,7 +33,7 @@
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.8em;
       margin-bottom: 20px;
       color: #333;
     }
@@ -48,18 +48,21 @@
       display: inline-block;
       margin-top: 30px;
       padding: 15px 30px;
-      background-color: #4caf50;
+      background-color: #ff8c78; /* Light Coral */
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
-      font-size: 1.2em;
+      font-size: 1.4em;
       transition: background-color 0.3s ease;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       cursor: pointer;
+      border: 2px solid #fff; /* Borda branca */
+      display: inline-flex;
+      align-items: center;
     }
 
     .cta-button:hover {
-      background-color: #45a049;
+      background-color: #ff6347; /* Tomato Red */
     }
 
     .cta-button::after {
@@ -80,7 +83,7 @@
       width: 80px;
       margin-right: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
 
     .feature-text {
@@ -88,7 +91,7 @@
     }
 
     .feature h2 {
-      font-size: 1.8em;
+      font-size: 2em;
       margin-bottom: 10px;
       color: #333;
     }
@@ -106,24 +109,31 @@
       }
     }
 
+    .additional-info {
+      margin-top: 30px;
+    }
+
+    .additional-info h2 {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .additional-info p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #555;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       background-color: #333;
       color: #fff;
-      font-size: 0.9em;
+      font-size: 1em;
       position: relative;
       margin-top: 20px;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: #555;
+      border-top: 2px solid #555; /* Borda superior */
     }
 
     .footer-content {
@@ -141,43 +151,50 @@
     }
 
     .footer-links a:hover {
-      color: #45a049;
+      color: #ff6347; /* Tomato Red */
     }
 
   </style>
 </head>
 <body>
   <header>
-    <h1 class="fade-in">Crie Memes Incríveis e com Facilidade</h1>
-    <p class="fade-in">Transforme suas ideias em humor irresistível.</p>
-    <a href="index2.html" class="cta-button fade-in">Conheça Mais</a>
+    <h1 class="fade-in">CANVAS.WIDTH - Explore o Universo dos Memes!</h1>
+    <p class="fade-in">Desperte sua criatividade e transforme momentos simples em comédia pura.</p>
+    <a href="index2.html" class="cta-button fade-in">Descubra Agora</a>
   </header>
 
   <div class="container">
-    <p class="fade-in">Bem-vindo ao CANVAS.WIDTH, onde a criatividade encontra a diversão. Crie memes personalizados com nosso incrível gerador de memes facil de usar.</p>
+    <p class="fade-in">Bem-vindo ao CANVAS.WIDTH, onde a diversão encontra a inovação. Crie memes personalizados com nosso incrível gerador de memes, feito especialmente para você.</p>
     
     <div class="feature fade-in">
-    
       <div class="feature-text">
-        <h2>Personalização Total</h2>
-        <p>Escolha entre algumas fontes, cores e estilos para criar memes únicos e expressivos.</p>
+        <h2>Personalização Ilimitada</h2>
+        <p>Explore uma variedade de fontes, cores e estilos para criar memes verdadeiramente únicos e expressivos.</p>
       </div>
     </div>
 
     <div class="feature fade-in">
-      
       <div class="feature-text">
-        <h2>Intuitivo e Rápido</h2>
-        <p>Nossa interface fácil de usar permite que você crie memes em minutos ou em segundos, sem necessidade de habilidades técnicas.</p>
+        <h2>Criatividade sem Barreiras</h2>
+        <p>Nossa interface intuitiva permite que você liberte sua criatividade sem a necessidade de habilidades técnicas.</p>
       </div>
     </div>
 
     <div class="feature fade-in">
-      
       <div class="feature-text">
-        <h2>Upload facil e rapido</h2>
-        <p>Baixe-os para uso posterior. Divirta-se compartilhando humor, e aligria!</p>
+        <h2>Upload e Download Rápidos</h2>
+        <p>Baixe e compartilhe seus memes em segundos. Alegre seus amigos e familiares com humor contagiante!</p>
       </div>
+    </div>
+
+    <div class="additional-info fade-in">
+      <h2>Recursos Adicionais</h2>
+      <p>Além do gerador de memes, aproveite recursos como:</p>
+      <ul>
+        <li>Galera de memes em destaque;</li>
+        <li>Comentários e compartilhamento de memes;</li>
+        <li>Atualizações regulares com novos modelos.</li>
+      </ul>
     </div>
 
     <a href="index.html" class="cta-button fade-in">Experimente Agora</a>
@@ -191,7 +208,7 @@
         <a href="#">Contato</a>
       </div>
       <div>
-        &copy; 2023 CANVAS.WIDTH - Crie Memes Incríveis! | <a href="#">Política de Privacidade</a>
+        &copy; 2023 CANVAS.WIDTH - Explore o Universo dos Memes! | <a href="#">Política de Privacidade</a>
       </div>
     </div>
   </footer>
@@ -210,5 +227,4 @@
     });
   </script>
 </body>
-</html>
 </html>
