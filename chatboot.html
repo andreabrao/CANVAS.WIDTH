@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chatbot.css">
+  <title>CANVAS.WIDTH - Chatbot</title>
+</head>
+<style>
+  /* Estilos para o chatbot */
+      @media screen and (max-width: 600px) {
+        .chat-container {
+          position: fixed;
+          bottom: 20px;
+          right: 10px;
+          width: 360px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+    }
+
+.chat-header {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-title {
+  font-size: 18px;
+}
+
+.close-button {
+  cursor: pointer;
+}
+
+.chat-messages {
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chat-input button {
+  margin-left: 8px;
+  padding: 8px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+</style>
+<body>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="chat-title">Chatbot</div>
+      <div class="close-button" onclick="fecharChatbot()">X</div>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input">
+      <input type="text" id="mensagem-input" placeholder="Digite sua mensagem...">
+      <button onclick="enviarMensagem()">Enviar</button>
+    </div>
+  </div>
+<script>
+  // Array para armazenar mensagens do chat
+  var chatMessages = [];
+
+  // Banco de dados fictício de perguntas e respostas para o gerador de memes<script>
+  // Banco de dados fictício de perguntas e respostas para o gerador de memes
+  var bancoDeMemes = {
+    'como criar memes?': 'Criar memes é fácil! Você pode usar o CANVAS.WIDTH ao seu favor. Basta fazer upload de uma imagem e adicionar texto!',
+    'melhores aplicativos de memes': 'Alguns dos melhores aplicativos de memes e o CANVAS.WIDTH.',
+    'onde encontrar modelos de memes': 'Existem vários sites que oferecem modelos de memes gratuitos, como o CANVAS.WIDTH.',
+    'dicas para memes engraçados': 'Certifique-se de escolher imagens relevantes, use um texto legível e tenha um senso de humor! Praticar sempre ajuda.',
+    'como adicionar texto a um meme?': 'A maioria das ferramentas de criação de memes permite que você adicione texto diretamente à imagem. Basta encontrar a opção de adicionar texto e personalizar conforme necessário.',
+    'como fazer memes personalizados?': 'Para memes personalizados, escolha uma imagem que tenha relevância para sua ideia. Em seguida, adicione um texto criativo para transmitir a mensagem desejada.',
+    'aplicativos para editar memes no celular': 'Alguns bons aplicativos para editar memes em dispositivos móveis incluem Meme Generator CANVAS.WIDTH.',
+    'como compartilhar memes nas redes sociais?': 'Você pode compartilhar memes nas redes sociais diretamente da plataforma de criação ou salvar a imagem e fazer o upload manualmente.',
+    'como escolher imagens para memes?': 'Escolha imagens que tenham um apelo visual forte e que se relacionem com o conteúdo do meme. Imagens engraçadas, cenas de filmes ou fotos populares são boas opções.',
+    'onde encontrar inspiração para memes?': 'Você pode encontrar inspiração para memes em redes sociais, eventos atuais, e até mesmo em situações cotidianas. Fique atento ao que faz as pessoas rirem!',
+    'como usar memes de forma eficaz?': 'Use memes de forma eficaz escolhendo aqueles que se relacionam com seu público-alvo. Certifique-se de que o contexto seja apropriado para a mensagem que você deseja transmitir.',
+    'como criar memes virais?': 'A criação de memes virais pode envolver humor inteligente, referências populares e timing certo. Esteja atento às tendências e participe das conversas online.',
+    'como monetizar memes?': 'Monetizar memes pode envolver parcerias com marcas, participação em programas de afiliados ou até mesmo criar produtos relacionados aos memes. Explore diversas opções!',
+    'como fazer memes de animais?': 'Memes de animais são populares! Escolha imagens engraçadas ou fofas de animais e adicione legendas criativas para criar memes irresistíveis.',
+    'como usar memes no ambiente de trabalho?': 'Use memes no ambiente de trabalho com cautela. Certifique-se de que sejam apropriados para o ambiente e não ofensivos. Um toque de humor pode ser bem-vindo!',
+    'quais são os memes mais populares do momento?': 'Os memes mais populares mudam rapidamente, mas você pode acompanhar as tendências nas redes sociais para descobrir quais estão em alta no momento.',
+    'como criar memes de formato diferente?': 'Experimente criar memes com formatos diferentes, como memes em formato de quadrinhos, memes GIF ou memes interativos. A criatividade é fundamental!',
+    'como adicionar emojis aos memes?': 'Para adicionar emojis aos memes, você pode usar ferramentas de edição que permitem a inserção de elementos gráficos. Escolha emojis que complementem o humor do seu meme.',
+    'como criar memes informativos?': 'Memes informativos combinam humor com informação. Escolha tópicos relevantes, use fontes confiáveis e certifique-se de que a informação seja apresentada de maneira clara e concisa.',
+    'como evitar violação de direitos autorais ao criar memes?': 'Evite violação de direitos autorais ao usar imagens de domínio público, criar memes originais ou garantir que você tenha permissão para usar as imagens escolhidas.',
+    'como criar memes interativos?': 'Memes interativos envolvem a participação do público. Crie enquetes, desafios ou situações em que as pessoas possam interagir com o meme. Isso aumenta o engajamento!',
+    'como usar memes em apresentações?': 'Use memes em apresentações para adicionar humor e envolver o público. Certifique-se de que os memes se relacionem com o conteúdo e não sejam ofensivos.',
+    'como criar memes de sucesso no Instagram?': 'Para criar memes de sucesso no Instagram, conheça o público-alvo, use legendas envolventes, e participe de hashtags populares. A consistência é chave!',
+    'como criar memes políticos respeitosos?': 'Ao criar memes políticos, seja respeitoso e evite conteúdo ofensivo. Use humor inteligente para transmitir mensagens e esteja ciente do contexto político.',
+    'como criar memes para engajar a comunidade online?': 'Engaje a comunidade online criando memes relevantes para os interesses e valores compartilhados. Responda aos comentários e participe das conversas!',
+    'como criar memes sobre tecnologia?': 'Memes sobre tecnologia podem incluir situações engraçadas do dia a dia, piadas sobre gadgets ou críticas bem-humoradas. Conheça a linguagem e as tendências tech!',
+    'como usar memes para contar uma história?': 'Use memes para contar uma história dividindo-a em partes. Cada meme pode representar um momento ou desenvolvimento da narrativa. Mantenha o público envolvido!',
+    'como criar memes para eventos sociais?': 'Crie memes para eventos sociais considerando o tema, a audiência e o propósito. Adapte o humor de acordo com a atmosfera do evento e mantenha-o leve e divertido!',
+    'como criar memes inspirados em filmes?': 'Memes inspirados em filmes podem incluir citações famosas, cenas icônicas ou situações engraçadas relacionadas à cultura cinematográfica. Seja criativo!',
+    'como criar memes para educação online?': 'Crie memes educacionais online tornando o conteúdo informativo em algo divertido. Use elementos visuais e humor para manter o interesse dos alunos!',
+    'como criar memes motivacionais?': 'Memes motivacionais podem incluir mensagens inspiradoras acompanhadas de imagens inspiradoras. Escolha temas universais que possam ressoar com diversas pessoas.',
+    'como usar memes em marketing digital?': 'Use memes em marketing digital para criar conteúdo divertido e atrativo. Certifique-se de que os memes estejam alinhados com a identidade da marca e ressoem com o público-alvo.',
+    'como criar memes sobre ciência?': 'Crie memes sobre ciência incorporando conceitos científicos de forma humorística. Utilize referências populares na comunidade científica e mantenha a precisão quando possível.',
+    'como criar memes de culinária?': 'Memes de culinária podem incluir situações engraçadas na cozinha, piadas sobre ingredientes ou até mesmo críticas bem-humoradas a tendências gastronômicas. Deixe sua criatividade fluir!',
+    'como fazer memes de viagem?': 'Memes de viagem podem incluir experiências engraçadas, estereótipos culturais ou situações típicas durante viagens. Escolha temas universais que os amantes de viagens possam apreciar.',
+    'como criar memes para redes sociais específicas?': 'Adapte seus memes para diferentes redes sociais, considerando a linguagem e os interesses específicos de cada plataforma. Personalização é a chave para o engajamento!',
+    'como criar memes sobre eventos atuais?': 'Crie memes sobre eventos atuais mantendo-se atualizado com as notícias. Utilize humor responsável e esteja ciente da sensibilidade dos tópicos abordados.',
+    'como criar memes para celebrar conquistas?': 'Crie memes para celebrar conquistas pessoais ou marcos importantes. Seja positivo e compartilhe mensagens inspiradoras para motivar os outros!',
+    'como criar memes sobre jogos?': 'Memes sobre jogos podem incluir referências a títulos populares, situações engraçadas em jogos ou até mesmo críticas bem-humoradas à cultura gamer. Conheça a comunidade e divirta-se!',
+    'como criar memes para casamentos?': 'Crie memes para casamentos incluindo momentos engraçados, expectativas versus realidade ou até mesmo piadas leves sobre a vida a dois. Adapte-se ao estilo do casal!',
+    'como criar memes sobre o ambiente de trabalho remoto?': 'Crie memes sobre o trabalho remoto abordando situações engraçadas, desafios comuns ou aspectos peculiares do ambiente virtual. Relacione-se com a experiência compartilhada!',
+    'como criar memes sobre arte?': 'Memes sobre arte podem incluir paródias de obras famosas, situações engraçadas em galerias ou até mesmo críticas bem-humoradas ao mundo artístico. Deixe sua imaginação fluir!',
+    'como criar memes sobre música?': 'Crie memes sobre música incorporando letras conhecidas, situações engraçadas em shows ou até mesmo piadas sobre diferentes gêneros musicais. A música é uma fonte rica de inspiração!',
+    'como criar memes sobre o universo geek?': 'Memes geek podem incluir referências a filmes, séries, quadrinhos ou jogos populares na cultura nerd. Conecte-se com a comunidade geek e explore temas adorados por fãs!',
+    'como criar memes para datas comemorativas?': 'Crie memes para datas comemorativas adaptando o humor ao contexto da celebração. Explore temas específicos de cada data para criar conteúdo relevante e divertido!',
+    'como criar memes sobre a vida cotidiana?': 'Crie memes sobre a vida cotidiana abordando situações comuns, desafios diários ou reflexões humorísticas sobre a rotina. Encontre humor nas pequenas coisas!',
+    'como criar memes para atrair seguidores nas redes sociais?': 'Crie memes atrativos e compartilháveis para atrair seguidores nas redes sociais. Utilize elementos visuais impactantes, humor envolvente e esteja alinhado com os interesses do seu público.',
+    'como criar memes para eventos esportivos?': 'Crie memes para eventos esportivos incluindo momentos marcantes, brincadeiras sobre times ou até mesmo piadas relacionadas às regras do esporte. Torne-se parte da conversa esportiva!',
+    'como criar memes sobre o universo científico?': 'Memes científicos podem incluir piadas sobre teorias, situações engraçadas em laboratórios ou até mesmo críticas bem-humoradas a clichês na comunidade científica. Mantenha a precisão e a criatividade!',
+    'como criar memes sobre moda e tendências?': 'Crie memes sobre moda incorporando situações engraçadas, críticas bem-humoradas às tendências atuais ou até mesmo paródias de ícones da moda. A moda também pode ser divertida!',
+    'como criar memes sobre a vida acadêmica?': 'Memes sobre vida acadêmica podem incluir situações engraçadas em sala de aula, piadas sobre disciplinas específicas ou reflexões humorísticas sobre a vida de estudante. Compartilhe experiências com colegas!',
+    'como criar memes sobre situações inusitadas?': 'Crie memes sobre situações inusitadas explorando o humor em eventos fora do comum. Deixe a imaginação correr solta e compartilhe risadas com uma abordagem única!',
+      'default': 'Desculpe, não entendi. Posso ajudar com algo mais?',
+  };
+    // Função para gerar uma pergunta aleatória
+    function gerarPerguntaAleatoria() {
+      var perguntas = Object.keys(bancoDeMemes);
+      var perguntaAleatoria = perguntas[Math.floor(Math.random() * perguntas.length)];
+      return perguntaAleatoria;
+    }
+
+    // Função para preencher o campo de input com uma pergunta aleatória ao abrir o chatbot
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('mensagem-input').value = gerarPerguntaAleatoria();
+    });
+
+    // Função para fechar o chatbot
+    function fecharChatbot() {
+      document.querySelector('.chat-container').style.display = 'none';
+      window.history.back();
+    }
+
+    // Função para enviar mensagem
+    function enviarMensagem() {
+      // Obter a mensagem do input
+      var mensagemInput = document.getElementById('mensagem-input');
+      var mensagem = mensagemInput.value.toLowerCase(); // Converter para minúsculas para evitar problemas de capitalização
+
+      // Adicionar a mensagem ao array
+      chatMessages.push({ type: 'user', text: mensagem });
+
+      // Limpar o input
+      mensagemInput.value = '';
+
+      // Atualizar as mensagens exibidas no chat
+      exibirMensagens();
+
+      // Lógica de resposta com base nas perguntas e respostas do banco de dados de memes
+      var resposta = bancoDeMemes[mensagem] || bancoDeMemes['default'];
+
+      // Responder com a mensagem do banco de dados de memes
+      setTimeout(function () {
+        chatMessages.push({ type: 'bot', text: resposta });
+        exibirMensagens();
+      }, 500);
+    }
+
+    // Função para verificar se a mensagem contém palavras-chave específicas
+    function contemPalavraChave(mensagem, palavrasChave) {
+      return palavrasChave.some(function (palavraChave) {
+        return mensagem.includes(palavraChave);
+      });
+    }
+
+    // Função para exibir mensagens no chat
+    function exibirMensagens() {
+      var chatMessagesDiv = document.getElementById('chat-messages');
+
+      // Limpar mensagens antigas
+      chatMessagesDiv.innerHTML = '';
+
+      // Adicionar mensagens ao DOM
+      chatMessages.forEach(function (message) {
+        var messageDiv = document.createElement('div');
+        messageDiv.className = message.type === 'user' ? 'user-message' : 'bot-message';
+        messageDiv.textContent = message.text;
+        chatMessagesDiv.appendChild(messageDiv);
+      });
+
+      // Rolar para baixo para exibir a última mensagem
+      chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+    }
+  </script>
+
+
+</body>
+</html>
