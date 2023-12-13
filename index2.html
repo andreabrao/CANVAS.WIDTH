@@ -105,6 +105,33 @@
     a:hover {
       text-decoration: underline;
     }
+
+/* Estilos para o botão flutuante */
+.chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  animation: blink 2s infinite; /* Adiciona o efeito de piscar */
+}
+
+@keyframes blink {
+  0%, 49%, 100% {
+    opacity: 1;
+  }
+  50%, 99% {
+    opacity: 0;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -197,11 +224,29 @@
       <button onclick="generateMeme()">Gerar Meme</button>
       <button onclick="clearText()">Limpar Texto</button>
     </div>
+    
 
     <a id="downloadLink" style="display: none;">Baixar Meme</a>
+    
+    <button class="chatbot-button" onclick="abrirChatbot()">Chatbot
+      </butron>
   </div>
+  
 
   <script>
+  // Função para abrir o chatbot
+function abrirChatbot() {
+  // Adicione aqui a lógica para abrir o chatbot ou redirecionar para a página do chatbot
+  window.location.href = 'chatboot.html';
+}
+
+// Função para fechar o chatbot
+function fecharChatbot() {
+  // Adicione aqui a lógica necessária antes de fechar o chatbot, se necessário
+  window.history.back();
+}
+
+
     let increaseTextSize = false;
 
     document.getElementById('increaseTextSize').addEventListener('change', function() {
@@ -318,4 +363,4 @@
     document.getElementById('downloadLink').addEventListener('click', downloadMeme);
   </script>
 </body>
-        </html>
+      </html>
